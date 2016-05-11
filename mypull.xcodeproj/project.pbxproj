@@ -14,6 +14,8 @@
 		5259E8D31CE2BE7400613555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5259E8D21CE2BE7400613555 /* Assets.xcassets */; };
 		5259E8D61CE2BE7400613555 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5259E8D41CE2BE7400613555 /* LaunchScreen.storyboard */; };
 		5259E8E11CE2BE7400613555 /* mypullTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5259E8E01CE2BE7400613555 /* mypullTests.m */; };
+		5259E8EE1CE2BFB500613555 /* YXRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5259E8ED1CE2BFB500613555 /* YXRefreshView.m */; };
+		5259E8F51CE2C4E500613555 /* UIScrollView+YXPull.m in Sources */ = {isa = PBXBuildFile; fileRef = 5259E8F41CE2C4E500613555 /* UIScrollView+YXPull.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		5259E8DC1CE2BE7400613555 /* mypullTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mypullTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5259E8E01CE2BE7400613555 /* mypullTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mypullTests.m; sourceTree = "<group>"; };
 		5259E8E21CE2BE7400613555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5259E8EC1CE2BFB500613555 /* YXRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXRefreshView.h; sourceTree = "<group>"; };
+		5259E8ED1CE2BFB500613555 /* YXRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXRefreshView.m; sourceTree = "<group>"; };
+		5259E8F31CE2C4E500613555 /* UIScrollView+YXPull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+YXPull.h"; sourceTree = "<group>"; };
+		5259E8F41CE2C4E500613555 /* UIScrollView+YXPull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+YXPull.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		5259E8C51CE2BE7400613555 /* mypull */ = {
 			isa = PBXGroup;
 			children = (
+				5259E8EB1CE2BF4600613555 /* YXPull */,
 				5259E8C91CE2BE7400613555 /* AppDelegate.h */,
 				5259E8CA1CE2BE7400613555 /* AppDelegate.m */,
 				5259E8CC1CE2BE7400613555 /* ViewController.h */,
@@ -109,6 +116,17 @@
 				5259E8E21CE2BE7400613555 /* Info.plist */,
 			);
 			path = mypullTests;
+			sourceTree = "<group>";
+		};
+		5259E8EB1CE2BF4600613555 /* YXPull */ = {
+			isa = PBXGroup;
+			children = (
+				5259E8EC1CE2BFB500613555 /* YXRefreshView.h */,
+				5259E8ED1CE2BFB500613555 /* YXRefreshView.m */,
+				5259E8F31CE2C4E500613555 /* UIScrollView+YXPull.h */,
+				5259E8F41CE2C4E500613555 /* UIScrollView+YXPull.m */,
+			);
+			path = YXPull;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +230,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5259E8CE1CE2BE7400613555 /* ViewController.m in Sources */,
+				5259E8EE1CE2BFB500613555 /* YXRefreshView.m in Sources */,
 				5259E8CB1CE2BE7400613555 /* AppDelegate.m in Sources */,
 				5259E8C81CE2BE7400613555 /* main.m in Sources */,
+				5259E8F51CE2C4E500613555 /* UIScrollView+YXPull.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
