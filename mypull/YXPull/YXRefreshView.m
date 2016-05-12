@@ -72,16 +72,42 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
+    NSLog(@"()))%f",self.scrollView.contentSize.height);
     if ([keyPath isEqualToString:@"contentOffset"]) {
         CGPoint points = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
         [self scollViewDidScollInset:points];
+    }
+    if ([keyPath isEqualToString:@"contentSize"]) {
+        CGSize size = [[change valueForKey:NSKeyValueChangeNewKey] CGSizeValue];
+        CGRect r = self.frame;
+        switch (_posit) {
+            case YXRefewshPositTop:
+                
+                break;
+            case YXRefewshPositBottom:
+                r.origin.y = size.height;
+                self.frame = r;
+                break;
+            default:
+                break;
+        }
     }
 }
 
 - (void)setScollViewLoading
 {
     UIEdgeInsets inst = self.scrollView.contentInset;
-    inst.top = 60;
+    switch (_posit) {
+        case YXRefewshPositTop:
+             inst.top = 60;
+        
+            break;
+        case YXRefewshPositBottom:
+            inst.bottom =60;
+            break;
+        default:
+            break;
+    }
     [self scollViewContentInset:inst];
 }
 
@@ -89,6 +115,16 @@
 {
     UIEdgeInsets inst = self.scrollView.contentInset;
     inst.top = 0;
+    switch (_posit) {
+        case YXRefewshPositTop:
+            inst.top = 0;
+            break;
+        case YXRefewshPositBottom:
+            inst.bottom = 0;
+            break;
+        default:
+            break;
+    }
     [self scollViewContentInset:inst];
 }
 
@@ -109,6 +145,7 @@
     CGFloat oigiY = point.y;
     if(_state!=YXRefreshLoading)
      {
+         if (_posit==YXRefewshPositTop) {
              if (oigiY < 0  && self.scrollView.isDragging==YES) {
                  self.state = YXRefreshTragging;
              }
@@ -119,10 +156,25 @@
              {
                  self.state = YXRefreshLoading;
              }
+         }
+        else if(_posit==YXRefewshPositBottom)
+        {
+        
+            NSLog(@"----*%f",oigiY);
+            CGFloat palehod = MAX(self.scrollView.contentSize.height-self.scrollView.frame.size.height,0)+60;
+            if (oigiY>palehod-60&&self.scrollView.isDragging==YES) {
+                self.state = YXRefreshTragging;
+            }
+            if (oigiY>palehod&&self.scrollView.isDragging==YES) {
+                self.state = YXRefreshStoped;
+            }
+            if (oigiY>palehod&&self.scrollView.isDragging==NO) {
+                self.state = YXRefreshLoading;
+            }
+        }
      }
     else
     {
-        
            [self setScollViewLoading];
     }
 }

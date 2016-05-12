@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIScrollView+YXPull.h"
 
 typedef enum : NSUInteger {
     YXRefreshStoped,
@@ -18,6 +19,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic,copy)void(^actionHeadle)();
 @property (nonatomic ,weak) UIScrollView *scrollView;
+@property (nonatomic ,assign) YXRefewshPosit posit;
 
 - (void)startAnimating;
 - (void)stopAnimating;

@@ -17,16 +17,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, self.view.frame.size.height-120) style:UITableViewStylePlain];
     [self.view addSubview:tableView];
     tableView.dataSource = self;
     tableView.delegate = self;
     [tableView addPull:^{
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [tableView footStopAnimating];
+            NSLog(@"-----------------------------");
+        });
+    } posit:YXRefewshPositBottom];
+    
+    [tableView addPull:^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [tableView stopAnimating];
         });
     }];
-    [tableView startAnimating];
+  //  [tableView startAnimating];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -36,7 +43,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 25;
 }
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
